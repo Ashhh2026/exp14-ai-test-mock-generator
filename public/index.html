@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Test Suite & Mock Generator — Ashwarya Agrawal (23BCON1659) | Exp. 14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="student-strip">
+    <div class="container flex-row">
+      <span><strong>ASHWARYA AGRAWAL</strong> · ROLL NO: <strong>23BCON1659</strong></span>
+      <span class="mono">EXP 14 · AI-ASSISTED AUTOMATED TEST &amp; MOCK DATA GENERATOR</span>
+    </div>
+  </div>
+
+  <header class="hero-header">
+    <div class="container flex-row">
+      <div>
+        <span class="eyebrow">EXPERIMENT 14 // NODE:TEST SUITE SYNTHESIS &amp; JSON FIXTURE ENGINE</span>
+        <h1 class="main-title">Test &amp; <span class="serif-italic">Fixture</span> Studio</h1>
+        <p class="subtitle">
+          Built by <strong>Ashwarya Agrawal</strong> (Roll No: <strong>23BCON1659</strong>) — synthesizes runnable <code>node:test</code> integration files and typed JSON seed data from REST route contracts.
+        </p>
+      </div>
+      <div class="preset-row">
+        <button type="button" class="btn btn-soft" data-spec="students_api">🎓 Exp 8 Students</button>
+        <button type="button" class="btn btn-soft" data-spec="products_api">📦 Exp 7 Products</button>
+        <button type="button" class="btn btn-soft" data-spec="auth_register">🔐 Exp 6 Auth</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container studio-grid">
+    <!-- Left Column: Route & Schema Configurator -->
+    <section class="card" aria-labelledby="specHeading">
+      <span class="eyebrow">POST /API/GENERATE-TESTS</span>
+      <h2 id="specHeading" style="margin:0 0 6px;">Route &amp; Schema Spec</h2>
+      <p class="muted">Define target URL, HTTP verb, and typed fields (<code>name:type</code>).</p>
+
+      <form id="specForm" class="form-stack" novalidate>
+        <div class="field">
+          <label for="baseUrlInput">Base Server URL</label>
+          <input id="baseUrlInput" type="text" value="http://localhost:4008" />
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="methodSelect">HTTP Method</label>
+            <select id="methodSelect">
+              <option value="POST">POST</option>
+              <option value="GET">GET</option>
+              <option value="PUT">PUT</option>
+              <option value="PATCH">PATCH</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="countInput">Mock Rows (1–20)</label>
+            <input id="countInput" type="number" min="1" max="20" value="5" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="endpointInput">Endpoint Path *</label>
+          <input id="endpointInput" type="text" value="/api/students" required />
+          <span class="err-msg" id="epErr" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="fieldsInput">Schema Fields (<code>field:type</code>)</label>
+          <textarea id="fieldsInput" rows="3">name:string, rollNo:roll, email:email, course:enum, gpa:number</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">⚡ Generate Suite &amp; Fixtures</button>
+      </form>
+    </section>
+
+    <!-- Right Column: Generated Test Code + JSON Mock Fixtures -->
+    <div class="right-stack">
+      <section class="card">
+        <div class="flex-row" style="margin-bottom: 10px;">
+          <div>
+            <span class="eyebrow">INTEGRATION SUITE (NODE:TEST)</span>
+            <h2 style="margin:0;"><code>api.integration.test.js</code></h2>
+          </div>
+          <button type="button" class="btn btn-soft" id="copyTestBtn">Copy Test File</button>
+        </div>
+        <pre id="testCodeOut" class="code-surface"></pre>
+        <p class="ok-msg" id="copyTestStatus" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <div class="flex-row" style="margin-bottom: 10px;">
+          <div>
+            <span class="eyebrow">SEED PAYLOADS</span>
+            <h2 style="margin:0;"><code>mock-fixtures.json</code> (<span id="fixtureCount">0</span> records)</h2>
+          </div>
+          <button type="button" class="btn btn-soft" id="copyJsonBtn">Copy JSON</button>
+        </div>
+        <pre id="mockJsonOut" class="code-surface"></pre>
+        <p class="ok-msg" id="copyJsonStatus" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container flex-row">
+      <span><strong>Ashwarya Agrawal</strong> · Roll No: <strong>23BCON1659</strong></span>
+      <span>Experiment 14 — AI Automated Test &amp; Mock Data Generator</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

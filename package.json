@@ -1,0 +1,13 @@
+{
+  "name": "exp14-ai-test-mock-generator",
+  "version": "1.0.0",
+  "description": "Experiment 14 AI-Assisted Automated Test Suite & Mock Data Generator by Ashwarya Agrawal (23BCON1659)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.0.1"
+  }
+}
